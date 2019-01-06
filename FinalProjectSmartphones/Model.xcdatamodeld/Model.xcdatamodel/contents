@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cook" representedClassName=".Cook" syncable="YES" codeGenerationType="category">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="profilePicture" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="mealList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meal" inverseName="preparedBy" inverseEntity="Meal" syncable="YES"/>
+        <relationship name="orderList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meal" syncable="YES"/>
+    </entity>
+    <entity name="Cuisine" representedClassName=".Cuisine" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="meals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meal" syncable="YES"/>
+    </entity>
+    <entity name="Meal" representedClassName=".Meal" syncable="YES" codeGenerationType="category">
+        <attribute name="cuisine" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="preparedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cook" inverseName="mealList" inverseEntity="Cook" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES" codeGenerationType="category">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="orderList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meal" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Meal" positionX="-47" positionY="-19" width="128" height="118"/>
+        <element name="Cook" positionX="-362" positionY="-34" width="128" height="148"/>
+        <element name="User" positionX="-333" positionY="227" width="128" height="118"/>
+        <element name="Cuisine" positionX="79" positionY="269" width="128" height="73"/>
+    </elements>
+</model>

@@ -1,0 +1,6 @@
+framework module Pods_FinalProjectSmartphones {
+  umbrella header "Pods-FinalProjectSmartphones-umbrella.h"
+
+  export *
+  module * { export * }
+}
